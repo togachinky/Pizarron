@@ -1,0 +1,25 @@
+PIZARRÓN — pseudocódigo interactivo
+====================================
+
+Cómo usarlo:
+1. Descargá esta carpeta completa (o el .zip).
+2. Abrí "index.html" con doble clic (funciona sin instalar nada, sin servidor,
+   en cualquier navegador de PC, tablet o celular).
+3. Para publicarlo en internet (ej. GitHub Pages, Netlify, Vercel), subí
+   todos estos archivos manteniendo los nombres tal cual están.
+
+Archivos:
+- index.html          -> página principal
+- styles.css          -> estilos (tema pizarrón)
+- app.js              -> lógica de la interfaz (editor, consola, variables)
+- examples.js         -> programas de ejemplo del menú "Ejemplos"
+- engine.browser.js   -> motor de pseudocódigo empaquetado para el navegador
+- manifest.json       -> permite "instalar" la app en el celular (PWA)
+- motor-fuente/       -> código fuente original del motor (lexer, parser,
+                         intérprete) por si querés modificarlo. Si lo editás,
+                         hay que volver a generar engine.browser.js (unir los
+                         3 archivos sin las líneas require/module.exports).
+
+Todo funciona 100% en el navegador: no necesita internet ni backend
+(salvo la tipografía de Google Fonts, que si no hay conexión usa una
+fuente del sistema como reemplazo).
