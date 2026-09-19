@@ -7,7 +7,14 @@
 <title>Pizarrón — pseudocódigo interactivo</title>
 <meta name="description" content="Editor e intérprete de pseudocódigo en español para aprender algoritmos, estructuras de datos y de control, directo en el navegador.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%2314201a'/%3E%3Crect x='14' y='20' width='72' height='48' rx='4' fill='%23233a2d' stroke='%23f2c14e' stroke-width='3'/%3E%3Cpath d='M28 44 L40 56 L62 34' stroke='%23f2c14e' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Crect x='34' y='74' width='32' height='6' rx='2' fill='%235b3d29'/%3E%3C/svg%3E">
+<link rel="icon" href="icon-192.png" sizes="192x192" type="image/png">
+<link rel="icon" href="icon-512.png" sizes="512x512" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Pizarrón">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -26,6 +33,8 @@
       <button class="btn" id="btnSave" title="Descargar este programa"><span class="ic">⬇️</span><span class="txt">Descargar</span></button>
       <button class="btn" id="btnExamples" title="Ver ejemplos"><span class="ic">📚</span><span class="txt">Ejemplos</span></button>
       <button class="btn" id="btnHelp" title="Guía de pseudocódigo"><span class="ic">❓</span><span class="txt">Ayuda</span></button>
+      <button class="btn" id="btnInstallApp" title="Instalar Pizarrón como app" style="display:none;"><span class="ic">📲</span><span class="txt">Instalar app</span></button>
+      <button class="btn" id="btnDownloadApp" title="Descargar la app completa para usarla offline"><span class="ic">📦</span><span class="txt">App offline</span></button>
       <input type="file" id="fileInput" accept=".psc,.pseint,.txt" class="visually-hidden">
     </div>
     <div class="topbar-spacer"></div>
@@ -148,10 +157,28 @@
     </div>
   </div>
 
+  <!-- ============ MODAL: INSTALAR EN iPHONE/iPAD ============ -->
+  <div class="modal-backdrop hidden" id="modalInstalarIOS">
+    <div class="modal" style="max-width:420px;">
+      <div class="modal-header"><h2>Instalar en iPhone / iPad</h2><button class="modal-close" data-close>✕</button></div>
+      <div class="modal-body">
+        <p>Safari no deja instalar apps con un solo toque; hay que hacerlo a mano, pero son tres pasos:</p>
+        <ol style="margin:0;padding-left:20px;line-height:1.6;">
+          <li>Tocá el botón <strong>Compartir</strong> (el cuadradito con la flecha hacia arriba).</li>
+          <li>Elegí <strong>«Agregar a inicio»</strong>.</li>
+          <li>Confirmá el nombre y tocá <strong>«Agregar»</strong>.</li>
+        </ol>
+        <p style="margin-bottom:0;">Queda como un ícono más en tu pantalla, y se abre a pantalla completa, sin las barras de Safari.</p>
+      </div>
+    </div>
+  </div>
+
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script src="engine.browser.js"></script>
 <script src="examples.js"></script>
 <script src="app.js"></script>
+<script src="pwa.js"></script>
 </body>
 </html>

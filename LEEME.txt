@@ -8,18 +8,34 @@ Cómo usarlo:
 3. Para publicarlo en internet (ej. GitHub Pages, Netlify, Vercel), subí
    todos estos archivos manteniendo los nombres tal cual están.
 
+Instalar como app / usar sin conexión:
+- Con la página abierta y publicada por HTTPS, tocá "📲 Instalar app"
+  (arriba a la derecha). En Chrome/Edge/Android se instala con un toque;
+  en iPhone/iPad (Safari) el mismo botón te muestra el paso manual
+  (Compartir → "Agregar a inicio"), porque Safari no lo automatiza.
+- Una vez instalada, la app abre sin conexión gracias al service worker
+  (sw.js), que guarda el editor y el motor de pseudocódigo la primera
+  vez que se usan con internet.
+- El botón "📦 App offline" arma y descarga un .zip con toda la app
+  (útil para guardarla, moverla a otra compu o subirla a otro hosting).
+
 Archivos:
 - index.html          -> página principal
 - styles.css          -> estilos (tema pizarrón)
 - app.js              -> lógica de la interfaz (editor, consola, variables)
 - examples.js         -> programas de ejemplo del menú "Ejemplos"
 - engine.browser.js   -> motor de pseudocódigo empaquetado para el navegador
+- pwa.js              -> lógica de "Instalar app" y "App offline"
+- sw.js               -> service worker (funcionamiento sin conexión)
 - manifest.json       -> permite "instalar" la app en el celular (PWA)
+- icon-192.png / icon-512.png / icon-512-maskable.png / apple-touch-icon.png
+                      -> íconos de la app
 - motor-fuente/       -> código fuente original del motor (lexer, parser,
                          intérprete) por si querés modificarlo. Si lo editás,
                          hay que volver a generar engine.browser.js (unir los
                          3 archivos sin las líneas require/module.exports).
 
-Todo funciona 100% en el navegador: no necesita internet ni backend
-(salvo la tipografía de Google Fonts, que si no hay conexión usa una
-fuente del sistema como reemplazo).
+Todo funciona 100% en el navegador: no necesita backend. La tipografía de
+Google Fonts y la librería JSZip (para "App offline") sí piden internet la
+primera vez; sin conexión, la app usa una fuente del sistema como reemplazo
+y el resto sigue funcionando igual.
